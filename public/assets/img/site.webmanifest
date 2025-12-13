@@ -1,0 +1,28 @@
+{
+  "name": "Sistem Informasi Repository Institut Agama Islam Hasan Jufri",
+  "short_name": "SIREPO IAIHJ",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#059669",
+  "lang": "id-ID",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/assets/img/inhafi.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

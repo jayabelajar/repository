@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /assets/uploads/
+Allow: /repository/
+Allow: /telusuri
+
+Sitemap: /sitemap.xml
