@@ -1,5 +1,6 @@
 RewriteEngine On
-RewriteBase /sirepo-v1/public/
+# Sesuaikan base ke root domain (tanpa subfolder) untuk sirepo-inhafi.com
+RewriteBase /
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

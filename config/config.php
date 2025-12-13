@@ -6,8 +6,9 @@
  * atau set environment variable sesuai nama di bawah ini.
  */
 $env = static function (string $key, $default = null) {
-    $value = getenv($key);
-    return $value === false ? $default : $value;
+    // Baca dari $_ENV lebih dulu (beberapa hosting mematikan getenv)
+    $value = $_ENV[$key] ?? getenv($key);
+    return ($value === false || $value === null) ? $default : $value;
 };
 
 $httpHost = $_SERVER['HTTP_HOST'] ?? '';
@@ -19,7 +20,7 @@ $dynamicBase = ($httpHost ? $scheme . '://' . $httpHost : 'http://localhost') . 
 
 $envAppEnv = $env('APP_ENV', 'local');
 $isLocalHost = $httpHost && (str_contains($httpHost, 'localhost') || str_contains($httpHost, '127.0.0.1') || $envAppEnv === 'local');
-$defaultBase = $dynamicBase ?: 'http://localhost/sirepo-v1';
+$defaultBase = $dynamicBase ?: 'https://sirepo-inhafi.com';
 
 return [
     // Branding utama situs

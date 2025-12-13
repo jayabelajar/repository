@@ -2,6 +2,22 @@
 
 use App\Core\App;
 
+$envFile = __DIR__ . '/../.env';
+if (is_file($envFile)) {
+    foreach (file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
+        $line = trim($line);
+        if ($line === '' || strpos($line, '#') === 0) continue;
+        [$k, $v] = array_pad(explode('=', $line, 2), 2, '');
+        $k = trim($k);
+        $v = trim($v);
+        if ($v !== '' && ($v[0] === '"' || $v[0] === "'")) {
+            $v = trim($v, '\'"');
+        }
+        putenv("$k=$v");
+        $_ENV[$k] = $v;
+    }
+}
+
 $isHttps = (
     (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
     || (isset($_SERVER['SERVER_PORT']) && (int)$_SERVER['SERVER_PORT'] === 443)
