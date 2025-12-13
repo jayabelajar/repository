@@ -6,6 +6,10 @@ yarn-error.log*
 pnpm-debug.log*
 bun.lockb
 
+# Temporary patch scripts
+tmp_patch*.py
+tmp_patch*.php
+
 # Database dumps
 *.sql
 *.dump
