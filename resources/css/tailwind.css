@@ -1,3 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Tambahkan utilitas kustom di sini jika diperlukan.
+   File ini dipakai sebagai sumber utama Tailwind (npm run dev/build). */

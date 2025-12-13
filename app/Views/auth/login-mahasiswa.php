@@ -140,6 +140,10 @@ $error = $_GET['error'] ?? null;
         </button>
     </form>
 
+    <p class="text-sm text-center text-gray-600">
+        Belum punya akun? <a href="<?= $base ?>/daftar" class="font-semibold text-emerald-600 hover:text-emerald-700 hover:underline">Daftar sekarang</a>
+    </p>
+
     <div class="pt-4 border-t border-gray-100">
         <p class="text-xs text-center text-gray-400 leading-relaxed">
             Hanya untuk <span class="text-gray-700 font-bold">Mahasiswa Aktif</span>.<br>

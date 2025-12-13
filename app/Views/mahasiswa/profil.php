@@ -6,6 +6,7 @@ $role = 'Mahasiswa';
 $email = $u['email'] ?? '';
 $username = $u['username'] ?? '';
 $nim = $u['nim'] ?? '';
+$csrfToken = $csrf ?? null;
 ?>
 
 <div class="space-y-6 animate-fade-in-up">
@@ -90,6 +91,9 @@ $nim = $u['nim'] ?? '';
                 </div>
 
                 <form action="<?= $base ?>/mahasiswa/profil" method="POST" class="space-y-5">
+                    <?php if ($csrfToken): ?>
+                        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
+                    <?php endif; ?>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         

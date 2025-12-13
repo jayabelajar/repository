@@ -12,13 +12,21 @@ tmp_patch*.php
 temp_dash.txt
 
 # Build artifacts
-public/assets/css/tailwind.css
+public/assets/css/tailwind*.css
 public/assets/css/*.map
 
 # Environment files
 .env
 .env.*
 !.env.example
+
+# Tests / coverage
+coverage/
+.phpunit.result.cache
+
+# Local databases
+*.sqlite
+*.sqlite3
 
 # PHP / Composer
 vendor/

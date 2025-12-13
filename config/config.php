@@ -54,7 +54,7 @@ return [
         'port'    => (int) $env('DB_PORT', 3306),
         'name'    => $env('DB_NAME', 'u804549048_sirepo'),
         'user'    => $env('DB_USER', 'u804549048_sirepo'),
-        'pass'    => $env('DB_PASS', 'Jayoynux#2026'),
+        'pass'    => $env('DB_PASS', 'Jayanux#2026'),
         'charset' => $env('DB_CHARSET', 'utf8mb4'),
     ],
 

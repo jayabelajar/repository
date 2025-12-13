@@ -4,6 +4,7 @@ namespace App\Controllers\Mahasiswa;
 
 use App\Core\Controller;
 use App\Core\Security\Auth;
+use App\Core\Security\Csrf;
 use App\Models\ActivityLog;
 use App\Models\User;
 
@@ -35,6 +36,7 @@ class ProfilController extends Controller
             ],
             'header_activities' => $headerActivities,
             'suppress_layout_title' => true,
+            'csrf' => Csrf::token(),
         ], 'mahasiswa');
     }
 
