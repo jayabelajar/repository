@@ -5,55 +5,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 bun.lockb
-tmp/
-tmp_*.py
-tmp_patch*.py
-tmp_patch*.php
-temp_dash.txt
 
-# Build artifacts
-public/assets/css/tailwind*.css
-public/assets/css/*.map
-
-# Environment files
-.env
-.env.*
-!.env.example
-
-# Tests / coverage
-coverage/
-.phpunit.result.cache
-
-# Local databases
-*.sqlite
-*.sqlite3
-
-# PHP / Composer
-vendor/
-composer.phar
-
-# Logs and cache
-storage/logs/
-storage/cache/
-storage/framework/
-storage/debugbar/
-storage/uploads/
-storage/*.pdf
-storage/*.bak
-
-# User uploads
-public/assets/uploads/
-
-# DB dumps / exports
+# Database dumps
 *.sql
-
-# Editor and OS files
-.DS_Store
-Thumbs.db
-.idea/
-.vscode/
-*.swp
-*.swo
-
-# General logs
-*.log
+*.dump

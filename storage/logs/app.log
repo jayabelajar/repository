@@ -1,0 +1,12 @@
+[2025-12-13 06:00:40] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'updated_at' in 'field list' in C:\xampp\htdocs\sirepo-v1\app\Core\Model.php:18
+Request: GET /sirepo-v1/sitemap.xml
+Trace: #0 C:\xampp\htdocs\sirepo-v1\app\Core\Model.php(18): PDO->prepare('SELECT slug, up...')
+#1 C:\xampp\htdocs\sirepo-v1\app\Models\Repository.php(708): App\Core\Model->query('SELECT slug, up...')
+#2 C:\xampp\htdocs\sirepo-v1\app\Controllers\Public\SitemapController.php(16): App\Models\Repository->getAllSlugs()
+#3 [internal function]: App\Controllers\Public\SitemapController->index()
+#4 C:\xampp\htdocs\sirepo-v1\app\Core\Router.php(129): call_user_func_array(Array, Array)
+#5 C:\xampp\htdocs\sirepo-v1\app\Core\Router.php(66): App\Core\Router->invoke(Array)
+#6 C:\xampp\htdocs\sirepo-v1\app\Core\App.php(11): App\Core\Router->dispatch('GET', '/sirepo-v1/site...')
+#7 C:\xampp\htdocs\sirepo-v1\public\index.php(43): App\Core\App->run()
+#8 {main}
+
