@@ -32,7 +32,19 @@ class Database
             try {
                 self::$instance = new PDO($dsn, $user, $pass, $options);
             } catch (PDOException $e) {
-                error_log('Database connection failed: ' . $e->getMessage());
+                $msg = 'Database connection failed: ' . $e->getMessage();
+                // Log detail (tanpa password) agar mudah debug di shared hosting
+                $context = sprintf(
+                    '[DB_FAIL] host=%s port=%s db=%s user=%s dsn=%s error=%s',
+                    $host,
+                    $port,
+                    $db,
+                    $user,
+                    $dsn,
+                    $e->getMessage()
+                );
+                @error_log($msg);
+                @file_put_contents(__DIR__ . '/../../storage/logs/db_error.log', $context . PHP_EOL, FILE_APPEND);
                 http_response_code(500);
                 exit('Database connection failed.');
             }
