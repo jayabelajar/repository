@@ -5,6 +5,25 @@
  * kredensial tersimpan di repository. Siapkan file .env di server/mesin lokal
  * atau set environment variable sesuai nama di bawah ini.
  */
+// Pastikan .env terbaca (beberapa hosting tidak memuatnya otomatis)
+foreach ([__DIR__ . '/../.env', __DIR__ . '/../../.env'] as $envFile) {
+    if (is_file($envFile)) {
+        foreach (file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
+            $line = trim($line);
+            if ($line === '' || strpos($line, '#') === 0) continue;
+            [$k, $v] = array_pad(explode('=', $line, 2), 2, '');
+            $k = trim($k);
+            $v = trim($v);
+            if ($v !== '' && ($v[0] === '"' || $v[0] === "'")) {
+                $v = trim($v, '\'"');
+            }
+            putenv("$k=$v");
+            $_ENV[$k] = $v;
+        }
+        break;
+    }
+}
+
 $env = static function (string $key, $default = null) {
     // Baca dari $_ENV lebih dulu (beberapa hosting mematikan getenv)
     $value = $_ENV[$key] ?? getenv($key);
