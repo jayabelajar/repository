@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="id">
 <head>
+    <?php
+        $base = rtrim($base_url ?? '', '/');
+        $cssPath = __DIR__ . '/../../../public/assets/css/tailwind.css';
+        $cssVersion = file_exists($cssPath) ? filemtime($cssPath) : time();
+    ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maintenance - SIREPO INHAFI</title>
@@ -8,36 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    },
-                    colors: {
-                        emerald: {
-                            50: '#ecfdf5', 100: '#d1fae5', 500: '#10b981', 600: '#059669', 700: '#047857',
-                        },
-                        slate: {
-                            800: '#1e293b', 900: '#0f172a',
-                        }
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="<?= $base; ?>/assets/css/tailwind.css?v=<?= $cssVersion ?>">
 </head>
 <body class="min-h-screen bg-slate-950 text-slate-100 antialiased relative overflow-hidden">
     <div class="pointer-events-none absolute inset-0">
