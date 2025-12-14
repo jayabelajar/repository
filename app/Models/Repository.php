@@ -474,11 +474,11 @@ class Repository extends Model
     {
         $params = [];
         $where  = $this->buildFilterClause($filters, $params);
-        $where .= " AND r.id IN (SELECT repository_id FROM repository_users WHERE user_id = :uid)";
         $params['uid'] = $userId;
 
-        $sql = "SELECT r.*, ps.nama_program_studi AS prodi, mk.nama AS mata_kuliah
+        $sql = "SELECT r.*, ps.nama_program_studi AS prodi, mk.nama AS mata_kuliah, ru.role_in_repo
                 FROM repository r
+                JOIN repository_users ru ON ru.repository_id = r.id AND ru.user_id = :uid
                 LEFT JOIN program_studi ps ON ps.id = r.program_studi_id
                 LEFT JOIN mata_kuliah mk ON mk.id = r.mata_kuliah_id
                 {$where}
@@ -495,11 +495,11 @@ class Repository extends Model
     {
         $params = [];
         $where  = $this->buildFilterClause($filters, $params);
-        $where .= " AND r.id IN (SELECT repository_id FROM repository_users WHERE user_id = :uid)";
         $params['uid'] = $userId;
 
         $sql = "SELECT COUNT(*)
                 FROM repository r
+                JOIN repository_users ru ON ru.repository_id = r.id AND ru.user_id = :uid
                 LEFT JOIN program_studi ps ON ps.id = r.program_studi_id
                 LEFT JOIN mata_kuliah mk ON mk.id = r.mata_kuliah_id
                 {$where}";

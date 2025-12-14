@@ -19,6 +19,9 @@
       </div>
 
       <form action="<?= $base_url; ?>/telusuri" method="get" class="flex flex-col sm:flex-row gap-3">
+        <?php if (!empty($filters['tahun'])): ?>
+          <input type="hidden" name="tahun" value="<?= e($filters['tahun']); ?>">
+        <?php endif; ?>
         <div class="relative flex-1">
           <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-emerald-500">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 4 4"></path></svg>

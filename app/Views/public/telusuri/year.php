@@ -9,7 +9,7 @@
     <div class="bg-white border border-slate-200 rounded-3xl shadow-sm p-4 sm:p-5">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
         <?php foreach ($years as $y): ?>
-          <a href="<?= $base_url; ?>/telusuri?q=<?= urlencode($y['label']); ?>"
+          <a href="<?= $base_url; ?>/telusuri?tahun=<?= urlencode($y['label']); ?>"
              class="flex items-start gap-3 p-4 rounded-2xl bg-white border border-slate-200 hover:border-emerald-300 hover:shadow-md transition">
             <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center flex-shrink-0">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
