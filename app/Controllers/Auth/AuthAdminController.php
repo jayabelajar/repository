@@ -48,9 +48,6 @@ class AuthAdminController extends Controller
             if ($reason === 'banned') {
                 $this->redirect('/__admin/login?error=banned');
             }
-            if ($reason === 'not_found') {
-                $this->redirect('/__admin/login?error=notfound');
-            }
             $this->redirect('/__admin/login?error=invalid');
         }
 

@@ -49,9 +49,6 @@ class AuthMahasiswaController extends Controller
             if ($reason === 'banned') {
                 return $this->redirect('/login?error=banned');
             }
-            if ($reason === 'not_found') {
-                return $this->redirect('/login?error=notfound');
-            }
             return $this->redirect('/login?error=invalid');
         }
 

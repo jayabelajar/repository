@@ -48,9 +48,6 @@ class AuthDosenController extends Controller
             if ($reason === 'banned') {
                 $this->redirect('/__dosen/login?error=banned');
             }
-            if ($reason === 'not_found') {
-                $this->redirect('/__dosen/login?error=notfound');
-            }
             $this->redirect('/__dosen/login?error=invalid');
         }
 

@@ -126,9 +126,6 @@ $router->get('/login',              [AuthMahasiswaController::class, 'showLoginF
 $router->post('/login',             [AuthMahasiswaController::class, 'login']);
 $router->post('/logout',            [AuthMahasiswaController::class, 'logout']);
 
-$router->get('/daftar',             [RegisterController::class, 'index']);
-$router->post('/daftar',            [RegisterController::class, 'submit']);
-
 
 /* ============================================================
    AUTH DOSEN

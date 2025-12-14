@@ -6,6 +6,9 @@ use App\Models\User;
 
 class Auth
 {
+    // Waktu idle maksimal sebelum logout otomatis (detik)
+    private const IDLE_TIMEOUT = 1200; // 20 menit
+
     private static function start(): void
     {
         if (!isset($_SESSION)) {
@@ -32,7 +35,8 @@ class Auth
             'id'    => $user['id'],
             'nama'  => $user['nama_lengkap'],
             'email' => $user['email'],
-            'nim'   => $user['nim']
+            'nim'   => $user['nim'],
+            'last_activity' => time(),
         ];
     }
 
@@ -54,6 +58,10 @@ class Auth
             header('Location: ' . self::baseUrl() . '/login');
             exit;
         }
+
+        self::enforceIdle('mahasiswa', static function () {
+            self::logoutMahasiswa();
+        });
 
         return $_SESSION['mahasiswa'];
     }
@@ -78,7 +86,8 @@ class Auth
             'id'    => $user['id'],
             'nama'  => $user['nama_lengkap'],
             'email' => $user['email'],
-            'nidn'  => $user['nidn_nip'] ?? null
+            'nidn'  => $user['nidn_nip'] ?? null,
+            'last_activity' => time(),
         ];
     }
 
@@ -90,6 +99,10 @@ class Auth
             header('Location: ' . self::baseUrl() . '/__dosen/login');
             exit;
         }
+
+        self::enforceIdle('dosen', static function () {
+            self::logoutDosen();
+        });
 
         return $_SESSION['dosen'];
     }
@@ -114,7 +127,8 @@ class Auth
             'id'    => $user['id'],
             'nama'  => $user['nama_lengkap'],
             'email' => $user['email'],
-            'role'  => $user['role']
+            'role'  => $user['role'],
+            'last_activity' => time(),
         ];
     }
 
@@ -126,6 +140,10 @@ class Auth
             header('Location: ' . self::baseUrl() . '/__admin/login');
             exit;
         }
+
+        self::enforceIdle('admin', static function () {
+            self::logoutAdmin();
+        });
 
         return $_SESSION['admin'];
     }
@@ -224,5 +242,17 @@ class Auth
             'success' => true,
             'user'    => $user,
         ];
+    }
+
+    private static function enforceIdle(string $sessionKey, callable $onTimeout): void
+    {
+        $now = time();
+        $last = $_SESSION[$sessionKey]['last_activity'] ?? $now;
+
+        if (($now - $last) > self::IDLE_TIMEOUT) {
+            $onTimeout();
+        }
+
+        $_SESSION[$sessionKey]['last_activity'] = $now;
     }
 }

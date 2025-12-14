@@ -141,7 +141,7 @@ $error = $_GET['error'] ?? null;
     </form>
 
     <p class="text-sm text-center text-gray-600">
-        Belum punya akun? <a href="<?= $base ?>/daftar" class="font-semibold text-emerald-600 hover:text-emerald-700 hover:underline">Daftar sekarang</a>
+        <!-- Pendaftaran dimatikan -->
     </p>
 
     <div class="pt-4 border-t border-gray-100">
