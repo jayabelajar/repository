@@ -55,6 +55,7 @@ use App\Controllers\Api\RepositoryApiController;
 use App\Controllers\Api\LookupApiController;
 use App\Controllers\Api\BookmarkApiController;
 use App\Controllers\Api\MobileAdminApiController;
+use App\Controllers\Api\ProfileApiController;
 
 
 /* init router */
@@ -241,6 +242,9 @@ $router->get('/api/mobile/mahasiswa/repositories', [MobileAdminApiController::cl
 $router->get('/api/mobile/mahasiswa/bookmarks', [MobileAdminApiController::class, 'bookmarks']);
 $router->post('/api/mobile/mahasiswa/bookmarks/toggle', [MobileAdminApiController::class, 'toggleBookmark']);
 $router->get('/api/mobile/mahasiswa/activities', [MobileAdminApiController::class, 'activities']);
+$router->post('/api/mobile/mahasiswa/profile', [ProfileApiController::class, 'updateMahasiswa']);
+$router->put('/api/mobile/mahasiswa/profile', [ProfileApiController::class, 'updateMahasiswa']);
+$router->patch('/api/mobile/mahasiswa/profile', [ProfileApiController::class, 'updateMahasiswa']);
 
 // Mobile dosen
 $router->get('/api/mobile/dosen/dashboard', [MobileAdminApiController::class, 'dosenDashboard']);
@@ -254,6 +258,9 @@ $router->put('/api/mobile/dosen/repositories/{id}', [RepositoryApiController::cl
 $router->patch('/api/mobile/dosen/repositories/{id}', [RepositoryApiController::class, 'update']);
 $router->delete('/api/mobile/dosen/repositories/{id}', [RepositoryApiController::class, 'destroy']);
 $router->post('/api/mobile/dosen/repositories/{id}/upload', [RepositoryApiController::class, 'uploadFile']);
+$router->post('/api/mobile/dosen/profile', [ProfileApiController::class, 'updateDosen']);
+$router->put('/api/mobile/dosen/profile', [ProfileApiController::class, 'updateDosen']);
+$router->patch('/api/mobile/dosen/profile', [ProfileApiController::class, 'updateDosen']);
 
 /* ============================================================
    MAINTENANCE
