@@ -47,14 +47,14 @@ return [
     // Pakai host/path yang sedang diakses; jika tidak ada (CLI), pakai APP_BASE_URL atau default.
     'base_url'      => rtrim((string) ($dynamicBase ?: $env('APP_BASE_URL', $defaultBase)), '/'),
     // Jika env tidak diset, fallback ke nilai default berikut (disarankan tetap set APP_API_SECRET di env)
-    'api_secret'    => $env('APP_API_SECRET', 'QZboOI2D9K0m9rwTXutXkPs9olhhGDXDT7Ota4A6h4c='),
+    'api_secret'    => $env('APP_API_SECRET', ' ='),
     'environment'   => $env('APP_ENV', 'production'),
     'database'      => [
         'host'    => $env('DB_HOST', 'localhost'),
         'port'    => (int) $env('DB_PORT', 3306),
-        'name'    => $env('DB_NAME', 'u804549048_sirepo'),
-        'user'    => $env('DB_USER', 'u804549048_sirepo'),
-        'pass'    => $env('DB_PASS', 'Jayanux#2026'),
+        'name'    => $env('DB_NAME', ' '),
+        'user'    => $env('DB_USER', ' '),
+        'pass'    => $env('DB_PASS', ' '),
         'charset' => $env('DB_CHARSET', 'utf8mb4'),
     ],
 
