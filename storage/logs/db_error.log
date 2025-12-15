@@ -1,1 +1,1 @@
-[DB_FAIL] host=auth-db1415.hstgr.io port=3306 db=u804549048_SirepoXPolije user=u804549048_sirepoxpolije dsn=mysql:host=auth-db1415.hstgr.io;port=3306;dbname=u804549048_SirepoXPolije;charset=utf8mb4 error=SQLSTATE[HY000] [1045] Access denied for user 'u804549048_sirepoxpolije'@'114.8.225.75' (using password: YES)
+yy
